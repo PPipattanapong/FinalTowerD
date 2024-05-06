@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SeekerScript : MonoBehaviour
 {
-    public Transform target;
+    [SerializeField]private Transform target;
     float speed = 10f;
     Vector3[] path;
     int targetIndex;

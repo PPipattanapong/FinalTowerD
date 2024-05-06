@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GridSize : MonoBehaviour
 {
-    public bool displayGridGizmos;
-    public LayerMask unwalkableMask;
-    public Vector2 gridWorldSize;
-    public float nodeRadius;
+    [SerializeField] private bool displayGridGizmos;
+    [SerializeField] private LayerMask unwalkableMask;
+    [SerializeField] private Vector2 gridWorldSize;
+    [SerializeField] private float nodeRadius;
     Node[,] grid;
 
     float nodeDiameter;

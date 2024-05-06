@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class PortalEnd : MonoBehaviour
 {
-    public int enemyCount = 0; // Number of enemies that triggered
-    public bool isLoaded = false; // To avoid reloading the scene multiple times
-    public int enemyThreshold = 5; // Number of enemies required to load the next scene
+    public int enemyCount = 0;
+    public bool isLoaded = false; 
+    public int enemyThreshold = 5; 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            DisableEnemy(other.gameObject); // Disable the enemy
+            DisableEnemy(other.gameObject); 
             IncrementEnemyCount(); // Update the count of disabled enemies
         }
     }
@@ -22,10 +22,6 @@ public class PortalEnd : MonoBehaviour
         // Option 1: Deactivate the entire GameObject
         enemy.SetActive(false);
 
-        // Option 2: Only disable the renderer to make it invisible (alternative approach)
-        // Renderer renderer = enemy.GetComponent<Renderer>();
-        // if (renderer != null) renderer.enabled = false;
-
         // Optionally disable the collider to prevent further interactions
         Collider collider = enemy.GetComponent<Collider>();
         if (collider != null) collider.enabled = false;
@@ -33,18 +29,18 @@ public class PortalEnd : MonoBehaviour
 
     public void IncrementEnemyCount()
     {
-        enemyCount++; // Increment the enemy count
+        enemyCount++; 
 
         if (enemyCount >= enemyThreshold && !isLoaded)
         {
             isLoaded = true;
-            LoadNextScene(); // Load the next scene when threshold is met
+            LoadNextScene(); 
         }
     }
 
     private void LoadNextScene()
     {
         // Load the next scene by its build index
-        SceneManager.LoadScene(1); // Change 1 to your desired build index
+        SceneManager.LoadScene(1); 
     }
 }
